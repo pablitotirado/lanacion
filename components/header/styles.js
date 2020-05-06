@@ -43,7 +43,7 @@ export const InputSearch = styled.input`
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8rem;
   border: 1px solid #cccccc;
-  border-radius: 5px;
+  border-radius: 3px;
   width: 13rem;
 `;
 
