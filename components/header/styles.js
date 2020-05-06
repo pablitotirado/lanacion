@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ContainerHeader = styled.div`
+export const ContainerHeader = styled.header`
   padding: 15px 10.32px 10px 10.32px;
   border-bottom: 1px solid #d9d9d9;
   display: flex;
@@ -83,9 +83,9 @@ export const Subscribe = styled.a`
 `;
 
 export const Button = styled.button`
-  background-color: ${props => (props.primary ? "#ffff24" : "#FFFFFF")};
-  border: 1px solid ${props => (props.primary ? "#CCCCCC" : "#0074c4")};
-  color: ${props => (props.primary ? "#000000" : "#0074c4")};
+  background-color: ${(props) => (props.primary ? "#ffff24" : "#FFFFFF")};
+  border: 1px solid ${(props) => (props.primary ? "#CCCCCC" : "#0074c4")};
+  color: ${(props) => (props.primary ? "#000000" : "#0074c4")};
   display: none;
   padding: 0.75em 1.5em;
   text-transform: uppercase;
@@ -99,8 +99,8 @@ export const Button = styled.button`
   }
 
   &:hover {
-    background-color: ${props => !props.primary && "#0074c4"};
-    color: ${props => !props.primary && "white"};
+    background-color: ${(props) => !props.primary && "#0074c4"};
+    color: ${(props) => !props.primary && "white"};
   }
 
   @media (min-width: 1024px) {

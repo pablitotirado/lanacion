@@ -1,24 +1,11 @@
-import { useEffect, useState } from "react";
+import { useReducer } from "react";
 import ContextNacion from "./context";
+import { useFetch } from "./hooks-peticion";
 
-const GlobalState = props => {
-  const [response, setResponse] = useState([]);
-  useEffect(() => {
-    async function Fetch() {
-      await fetch("https://api-test-ln.herokuapp.com/articles")
-        .then(response => response.json())
-        .then(myJson =>
-          setResponse(myJson.articles.filter(filt => filt.subtype === "7"))
-        );
-    }
-    Fetch();
-  }, []);
+const GlobalState = ({ children }) => {
+  const [response, error] = useFetch("https://api-test-ln.herokuapp.com/articles");
 
-  return (
-    <ContextNacion.Provider value={{ response }}>
-      {props.children}
-    </ContextNacion.Provider>
-  );
+  return <ContextNacion.Provider value={{ response }}>{children}</ContextNacion.Provider>;
 };
 
 export default GlobalState;
