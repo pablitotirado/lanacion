@@ -4,8 +4,6 @@ import Header from "../components/header";
 // import MainContent from "../components/main";
 // import Footer from "../components/footer";
 
-import { GlobalStyle } from "../global-styles";
-
 export default function Home() {
   return (
     <>
@@ -18,7 +16,6 @@ export default function Home() {
         />
         <title>La Nación</title>
       </Head>
-      <GlobalStyle />
       <Header />
       {/* <MainContent />
       <Footer /> */}
