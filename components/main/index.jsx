@@ -86,9 +86,23 @@ const DateCard = styled.p`
 const Main = () => {
   const { response } = useContext(ContextNacion);
 
-  console.log(response);
+  const responseSort = response.sort((a, b) => {
+    if (a.taxonomy.tags > b.taxonomy.tags) {
+      return 1;
+    }
+    if (a.taxonomy.tags < b.taxonomy.tags) {
+      return -1;
+    }
+    return 0;
+  });
 
-  const titles = response.slice(0, 9);
+  const configDates = {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  };
+
+  const titles = responseSort.slice(0, 9);
   return (
     <MainContainer>
       <TitleMain>Acumulado Grilla</TitleMain>
@@ -100,18 +114,18 @@ const Main = () => {
         ))}
       </ContainerMainTitles>
       <GridArticles>
-        {response.map((res) => (
+        {responseSort.map((res) => (
           <Card key={res._id}>
             <ImageCard src={res.promo_items.basic.url} />
             <CardBody>
-              <Link href="/">
+              <Link href={`#/tema/${res.taxonomy.tags[0].slug}`}>
                 <DescriptionCard>
                   <b>{res.headlines.basic}.</b>
                   {res.promo_items.basic.subtitle}
                 </DescriptionCard>
               </Link>
             </CardBody>
-            <DateCard>{res.display_date}</DateCard>
+            <DateCard>{new Date(res.display_date).toLocaleString("es-ES", configDates)}</DateCard>
           </Card>
         ))}
       </GridArticles>
