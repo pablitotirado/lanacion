@@ -8,6 +8,7 @@ const MainContainer = styled.main`
   flex-direction: column;
   align-items: space-around;
   @media (min-width: 768px) {
+    margin: 0 2rem;
     width: 100%;
   }
   @media (min-width: 1024px) {
@@ -20,11 +21,19 @@ const TitleMain = styled.h1`
   font-weight: 500;
   font-family: Georgia, "Times New Roman", Times, serif;
   border-bottom: 3px solid black;
+  margin-left: 0.5rem;
+  @media (min-width: 768px) {
+    margin-left: 0;
+  }
 `;
 const ContainerMainTitles = styled.div`
-  width: 50%;
+  overflow-x: scroll;
   display: flex;
   justify-content: space-between;
+  @media (min-width: 768px) {
+    overflow: initial;
+    width: 95%;
+  }
 `;
 const MainTitles = styled.a`
   font-size: 14px;
@@ -32,13 +41,22 @@ const MainTitles = styled.a`
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
-`;
+  cursor: pointer;
+  &:last-of-type {
+    div {
+      display: none;
+    }
+  }
 
+  &:first-of-type {
+    margin-left: 0.5rem;
+  }
+`;
 const SeparatorTitles = styled.div`
   font-size: 2rem;
   margin-top: 0.3rem;
+  margin: 0 0.5rem;
 `;
-
 const GridArticles = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -77,7 +95,6 @@ const DescriptionCard = styled.a`
   font-family:  font-family: Georgia, "Times New Roman", Times, serif;
   cursor: pointer;
 `;
-
 const DateCard = styled.p`
   color: #5a5a5a;
   font-size: 14px;
@@ -102,15 +119,18 @@ const Main = () => {
     year: "numeric",
   };
 
-  const titles = responseSort.slice(0, 9);
+  console.log(responseSort);
+
   return (
     <MainContainer>
       <TitleMain>Acumulado Grilla</TitleMain>
       <ContainerMainTitles>
-        {titles.slice(0, 9).map((res, i) => (
-          <MainTitles key={res._id}>
-            {res.headlines.basic} <SeparatorTitles>·</SeparatorTitles>
-          </MainTitles>
+        {responseSort.slice(0, 9).map((res) => (
+          <Link key={res._id} href={`#/tema/${res.taxonomy.tags[0].slug}`}>
+            <MainTitles>
+              {res.taxonomy.tags[0].text} <SeparatorTitles>·</SeparatorTitles>
+            </MainTitles>
+          </Link>
         ))}
       </ContainerMainTitles>
       <GridArticles>
@@ -118,12 +138,10 @@ const Main = () => {
           <Card key={res._id}>
             <ImageCard src={res.promo_items.basic.url} />
             <CardBody>
-              <Link href={`#/tema/${res.taxonomy.tags[0].slug}`}>
-                <DescriptionCard>
-                  <b>{res.headlines.basic}.</b>
-                  {res.promo_items.basic.subtitle}
-                </DescriptionCard>
-              </Link>
+              <DescriptionCard>
+                <b>{res.headlines.basic}.</b>
+                {res.promo_items.basic.subtitle}
+              </DescriptionCard>
             </CardBody>
             <DateCard>{new Date(res.display_date).toLocaleString("es-ES", configDates)}</DateCard>
           </Card>
