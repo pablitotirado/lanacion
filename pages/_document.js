@@ -17,10 +17,6 @@ export default class MyDocument extends Document {
         ...initialProps,
         styles: (
           <>
-            <Head>
-              <html lang="es" />
-              <title>La Nación</title>
-            </Head>
             {initialProps.styles}
             {sheet.getStyleElement(
               <link
@@ -30,6 +26,10 @@ export default class MyDocument extends Document {
                 crossOrigin="anonymous"
               />
             )}
+            <Head>
+              <html lang="es" />
+              <title>La Nación</title>
+            </Head>
           </>
         ),
       };
