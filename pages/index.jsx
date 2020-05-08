@@ -4,8 +4,10 @@ import Header from "../components/header";
 import MainContent from "../components/main";
 import NavMobile from "../components/navigation-mobile";
 import Footer from "../components/footer";
+import fetch from "isomorphic-unfetch";
 
-export default function Home() {
+export default function Home({ posts }) {
+  console.log(posts);
   const [scrolling, setScrolling] = useState(0);
 
   useEffect(() => {
@@ -27,8 +29,18 @@ export default function Home() {
       </Head>
       <Header />
       {!scrolling && <NavMobile />}
-      <MainContent />
+      <MainContent response={posts.articles} />
       <Footer />
     </>
   );
+}
+
+export async function getStaticProps(context) {
+  const res = await fetch("https://api-test-ln.herokuapp.com/articles");
+  const posts = await res.json();
+  return {
+    props: {
+      posts,
+    },
+  };
 }

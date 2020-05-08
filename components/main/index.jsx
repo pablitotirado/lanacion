@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import ContextNacion from "../../context/context";
+// import ContextNacion from "../../context/context";
 import Link from "next/link";
 import {
-  MainContainer,
   TitleMain,
+  MainContainer,
   ContainerMainTitles,
   MainTitles,
   SeparatorTitles,
@@ -15,10 +15,11 @@ import {
   DateCard,
 } from "./styles";
 
-const Main = () => {
-  const { response } = useContext(ContextNacion);
+const Main = ({ response }) => {
+  // const { response } = useContext(ContextNacion);
 
-  const responseSort = response.sort((a, b) => {
+  const responseFilter = response.filter((filt) => filt.subtype === "7");
+  const responseSort = responseFilter.sort((a, b) => {
     if (a.taxonomy.tags > b.taxonomy.tags) {
       return 1;
     }
@@ -49,7 +50,7 @@ const Main = () => {
       <GridArticles>
         {responseSort.map((res) => (
           <Card key={res._id}>
-            <ImageCard src={res.promo_items.basic.url} />
+            <ImageCard src={res.promo_items.basic.url} alt={`image-${res.headlines.basic}`} />
             <CardBody>
               <DescriptionCard>
                 <b>{res.headlines.basic}.</b>

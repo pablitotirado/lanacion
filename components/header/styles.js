@@ -95,7 +95,7 @@ export const Button = styled.button`
   border-radius: 3px;
 
   &:last-of-type {
-    margin-left: 2rem;
+
   }
 
   &:hover {

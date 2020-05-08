@@ -22,11 +22,11 @@ const Header = () => {
       <ContainerHeader>
         <ContainerLeft>
           <ContainerMenu>
-            <IconMenu src="/static/img/icon-menu.svg" />
+            <IconMenu src="/static/img/icon-menu.svg" alt="icon-menu" />
             <TextMenu>menú</TextMenu>
           </ContainerMenu>
           <InputSearch type="text" placeholder="Buscar" />
-          <IconSearch src="/static/img/icon-search.svg" />
+          <IconSearch src="/static/img/icon-search.svg" alt="icon-search" />
         </ContainerLeft>
         <Logo src="/static/img/lanacionlogo.png" alt="logo-lanacion" />
         <ContainerRight>
