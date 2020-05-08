@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-// import ContextNacion from "../../context/context";
 import Link from "next/link";
 import {
   TitleMain,
@@ -16,8 +15,6 @@ import {
 } from "./styles";
 
 const Main = ({ response }) => {
-  // const { response } = useContext(ContextNacion);
-
   const responseFilter = response.filter((filt) => filt.subtype === "7");
   const responseSort = responseFilter.sort((a, b) => {
     if (a.taxonomy.tags > b.taxonomy.tags) {

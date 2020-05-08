@@ -20,9 +20,10 @@ export default class SiteDocument extends Document {
           <meta charSet="utf-8" />
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           {styleTags}
+          <title>La Nación</title>
         </Head>
         <body>
-          <div className="root">{main}</div>
+          {main}
           <NextScript />
         </body>
       </html>
