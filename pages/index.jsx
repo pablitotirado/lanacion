@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Header from "../components/header";
 import MainContent from "../components/main";
-// import Footer from "../components/footer";
+import NavMobile from "../components/navigation-mobile";
+import Footer from "../components/footer";
 
 export default function Home() {
+  const [scrolling, setScrolling] = useState(0);
+
+  useEffect(() => {
+    setInterval(() => {
+      setScrolling(window.pageYOffset);
+    }, 100);
+  }, [scrolling]);
+
   return (
     <>
       <Head>
@@ -17,8 +26,9 @@ export default function Home() {
         <title>La Nación</title>
       </Head>
       <Header />
+      {!scrolling && <NavMobile />}
       <MainContent />
-      {/*<Footer /> */}
+      <Footer />
     </>
   );
 }

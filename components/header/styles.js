@@ -1,23 +1,23 @@
 import styled from "styled-components";
 
 export const ContainerHeader = styled.header`
-  padding: 15px 10.32px 10px 10.32px;
+  padding: 0.9rem;
   border-bottom: 1px solid #d9d9d9;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  width: 100vw;
   @media (min-width: 1024px) {
-    height: 68px;
+    height: 4.25rem;
   }
 `;
 
 export const ContainerLeft = styled.div`
   display: none;
   align-items: center;
-  justify-content: space-around;
-  flex-basis: 25%;
+  justify-content: space-between;
   position: relative;
+  width: 25%;
   @media (min-width: 1024px) {
     display: flex;
   }
@@ -55,12 +55,12 @@ export const IconSearch = styled.img`
 `;
 
 export const Logo = styled.img`
-  width: 168.64px;
-  height: 17px;
+  width: 10.54rem;
+  height: 1rem;
 
   @media (min-width: 1024px) {
-    width: 307.53px;
-    height: 31px;
+    width: 19.2rem;
+    height: 1.9rem;
   }
 `;
 
@@ -68,12 +68,11 @@ export const ContainerRight = styled.div`
   display: flex;
   justify-content: space-between;
   flex-basis: 21%;
-  padding-right: 2rem;
 `;
 
 export const Subscribe = styled.a`
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-family: Arial, Helvetica, sans-serif;
   color: #0074c4;
 
@@ -90,7 +89,7 @@ export const Button = styled.button`
   padding: 0.75em 1.5em;
   text-transform: uppercase;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: bold;
   border-radius: 3px;
 
