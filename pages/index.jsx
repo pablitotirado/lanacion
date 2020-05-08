@@ -6,7 +6,6 @@ import Footer from "../components/footer";
 import fetch from "isomorphic-unfetch";
 
 export default function Home({ posts }) {
-  console.log(posts);
   const [scrolling, setScrolling] = useState(0);
 
   useEffect(() => {

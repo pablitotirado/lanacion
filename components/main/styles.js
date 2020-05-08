@@ -4,11 +4,10 @@ export const MainContainer = styled.main`
   display: flex;
   flex-direction: column;
   align-items: space-around;
-  @media (min-width: 768px) {
-    width: 100%;
-  }
+  width: 100%;
   @media (min-width: 1024px) {
     width: 70%;
+    padding-left: 2rem;
   }
 `;
 export const TitleMain = styled.h1`
@@ -17,12 +16,13 @@ export const TitleMain = styled.h1`
   font-weight: 500;
   font-family: Georgia, "Times New Roman", Times, serif;
   border-bottom: 3px solid black;
-  margin-left: 0.5rem;
+  margin-left: 1rem;
 `;
 export const ContainerMainTitles = styled.div`
   overflow-x: scroll;
   display: flex;
   justify-content: space-between;
+  margin-left: 0.5rem;
   @media (min-width: 768px) {
     overflow: initial;
     width: 95%;

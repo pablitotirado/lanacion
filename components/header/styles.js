@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
 export const ContainerHeader = styled.header`
-  padding: 0.9rem;
-  border-bottom: 1px solid #d9d9d9;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
+  width: 100%;
+  border-bottom: 1px solid #d9d9d9;
+  padding: 0.5rem;
   @media (min-width: 1024px) {
     height: 4.25rem;
+    padding-left: 2.5rem;
   }
 `;
 
@@ -76,6 +77,7 @@ export const Subscribe = styled.a`
   font-size: 0.75rem;
   font-family: Arial, Helvetica, sans-serif;
   color: #0074c4;
+  margin-left: 1rem;
 
   @media (min-width: 1024px) {
     display: none;
@@ -95,7 +97,7 @@ export const Button = styled.button`
   border-radius: 3px;
 
   &:last-of-type {
-
+    margin-left: 0.5rem;
   }
 
   &:hover {

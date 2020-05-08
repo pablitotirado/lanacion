@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import styled from "styled-components";
 
 //Styles
 import {
@@ -15,6 +16,11 @@ import {
   IconMenu,
   TextMenu,
 } from "./styles";
+
+const Linea = styled.hr`
+
+  margin: 0;
+`;
 
 const Header = () => {
   return (
