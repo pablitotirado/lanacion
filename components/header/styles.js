@@ -68,6 +68,7 @@ export const ContainerRight = styled.div`
   display: flex;
   justify-content: space-between;
   flex-basis: 21%;
+  padding-right: 2rem;
 `;
 
 export const Subscribe = styled.a`
